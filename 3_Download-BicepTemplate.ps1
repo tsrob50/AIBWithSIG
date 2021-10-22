@@ -3,7 +3,7 @@
 # The template used is from the Azure Quick Start templates
 # it creates a Windows image and outputs the finished image to a Managed IMage
 # Set the template file path and the template file name
-$win10AIBUrl = "https://raw.githubusercontent.com/tsrob50/AIBandSIG/main/AIB.bicep"
+$win10AIBUrl = "https://raw.githubusercontent.com/tsrob50/AIBWithSIG/master/AIB.bicep"
 $win10AIB = "AIB.bicep"
 #Test to see if the path exists.  Create it if not
 if ((test-path .\Template) -eq $false) {
