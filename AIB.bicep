@@ -72,7 +72,7 @@ resource aib 'Microsoft.VirtualMachineImages/imageTemplates@2019-05-01-preview' 
           baseosimg: 'win10Multi'
         }
         replicationRegions: [
-          'CentralUS'
+          'EastUS'
         ]
       }
     ]
