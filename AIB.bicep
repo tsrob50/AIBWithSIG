@@ -5,12 +5,13 @@ param imageTemplateName string = '<Image Template Name>'
 param imageBuilderID string = '<Image Builder ID>'
 //Set the build timeout, factor in replication time for SIG dsf
 param buildTimeOut int = 60
-//Path to the zip archive
-param archiveSas string = '<SAS URI to zip archive file>'
 //Path to the PowerShell installation file
 param installScript string = '<URI to PowerShell Install File>'
 //URI to the Shared Image Gallery
 param sigImageDef string = '<URI to SIG Resource ID>'
+
+//Update <SAS to Zip Archive> with SAS URI to zip archive
+//Located in PowerShell GetArchive section
 
 param location string = resourceGroup().location
 
@@ -51,7 +52,7 @@ resource aib 'Microsoft.VirtualMachineImages/imageTemplates@2019-05-01-preview' 
         type: 'PowerShell'
         name: 'GetArchive'
         inline: [
-          concat('c:\\temp\\azcopy.exe copy', archiveSas, 'c:\\temp\\software.zip')
+          'c:\\temp\\azcopy.exe copy <SAS to Zip Archive> c:\\temp\\software.zip'
           'Expand-Archive \'c:\\temp\\software.zip\' c:\\temp'
         ]
       }
