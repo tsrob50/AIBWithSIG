@@ -52,7 +52,7 @@ resource aib 'Microsoft.VirtualMachineImages/imageTemplates@2019-05-01-preview' 
         type: 'PowerShell'
         name: 'GetArchive'
         inline: [
-          'c:\\temp\\azcopy.exe copy <SAS to Zip Archive> c:\\temp\\software.zip'
+          'c:\\temp\\azcopy.exe copy \'<SAS to Zip Archive>\' c:\\temp\\software.zip'
           'Expand-Archive \'c:\\temp\\software.zip\' c:\\temp'
         ]
       }
