@@ -1,8 +1,7 @@
 # Set Variables for the commands
 # Destination image resource group name
 $imageResourceGroup = '<Image Resource Group>'
-# Azure region
-# Supported Regions East US, East US 2, West Central US, West US, West US 2, North Europe, West Europe
+# Azure region supported for AIB
 $location = '<Location>'
 # Get the subscription ID
 $subscriptionID = (Get-AzContext).Subscription.Id
@@ -14,11 +13,10 @@ $subscriptionID = (Get-AzContext).Subscription.Id
 # Get the PowerShell modules
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 
-# Start by creating the Resource Group
-# the identity will need rights to this group
+# Start by creating the Resource Group for the Managed Identity
 New-AzResourceGroup -Name $imageResourceGroup -Location $location
 
-# Create the Managed Identity
+# Create the user assigned Managed Identity
 # Use current time to verify names are unique
 [int]$timeInt = $(Get-Date -UFormat '%s')
 $imageRoleDefName = "Azure Image Builder Image Def $timeInt"
