@@ -8,7 +8,7 @@ $subscriptionID = (Get-AzContext).Subscription.Id
 
 # Set Shared Image Gallery information
 # SIG Resource Group
- $sigResourceGroup = "EastUSSIG01"
+ $sigResourceGroup = '<SIG Resource Group>'
 
 # Get the PowerShell modules
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
