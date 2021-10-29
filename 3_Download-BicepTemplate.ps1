@@ -27,19 +27,20 @@ else {
 # Set variables if not already defined
 $imageResourceGroup = '<Image Resource Group>'
 $imageTemplateName = '<Image Template Name>'
+$deploymentName = '<Deployment Name>'
 
 
 # Install Bicep if not already available
 # follow one of the options in the link below to install Bicep
 # https://github.com/Azure/bicep/blob/main/docs/installing.md
 
- # The following commands require the Az.ImageBuilder module
+# The following commands require the Az.ImageBuilder module
 # Install the PowerShell module if not already installed
 Get-Module -Name Az.ImageBuilder
 Install-Module -name Az.ImageBuilder
 
 # Run the Bicep deployment 
-New-AzResourceGroupDeployment -name <Deployment Name> -ResourceGroupName $imageResourceGroup -TemplateFile .\Template\AIB.bicep 
+New-AzResourceGroupDeployment -name $deploymentName -ResourceGroupName $imageResourceGroup -TemplateFile .\Template\AIB.bicep 
 
 
 # Verify the template
