@@ -42,8 +42,8 @@ $Content | ConvertTo-Json -depth 10 | Out-File -FilePath $myRoleImageCreationPat
 
 # Update the file
 $Content = Get-Content -Path $myRoleImageCreationPath -Raw
-$Content = $Content -replace '\\u003csubscriptionID\\u003e', $subscriptionID
-$Content = $Content -replace '\\u003crgName\\u003e', $imageResourceGroup
+$Content = $Content -replace '<subscriptionID>', $subscriptionID
+$Content = $Content -replace '<rgName>', $imageResourceGroup
 $Content = $Content -replace 'Azure Image Builder Service Image Creation Role', $imageRoleDefName
 $Content | Out-File -FilePath $myRoleImageCreationPath -Force
 
