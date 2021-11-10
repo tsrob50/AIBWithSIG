@@ -8,7 +8,7 @@ param buildTimeOut int = 60
 //Path to the PowerShell installation file
 param installScript string = '<URI to PowerShell Install File>'
 //URI to the Shared Image Gallery
-param sigImageDef string = '<URI to SIG Resource ID>'
+param acgImageDef string = '<URI to SIG Resource ID>'
 
 //Update <SAS to Zip Archive> with SAS URI to zip archive
 //Located in PowerShell GetArchive section
@@ -66,7 +66,7 @@ resource aib 'Microsoft.VirtualMachineImages/imageTemplates@2019-05-01-preview' 
     distribute: [
       {
         type: 'SharedImage'
-        galleryImageId: sigImageDef
+        galleryImageId: acgImageDef
         runOutputName: 'win10Client'
         artifactTags: {
           source: 'azureVmImageBuilder'

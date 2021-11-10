@@ -8,7 +8,7 @@ $subscriptionID = (Get-AzContext).Subscription.Id
 
 # Set Shared Image Gallery information
 # Azure Compute Gallery (Previously SIG) Resource Group
- $acgResourceGroup = '<ACG Resource Group>'
+$acgResourceGroup = '<ACG Resource Group>'
 
 # Get the PowerShell modules
 'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
@@ -46,7 +46,7 @@ $Content | Out-File -FilePath $myRoleImageCreationPath -Force
 New-AzRoleDefinition -InputFile $myRoleImageCreationPath
 
 
-# Grant the Role Definition to the Image Builder Service Principle at the ACG Resource Group
+# Grant the Role Definition to the Image Builder Service Principle at the ACG
 $RoleAssignParams = @{
   ObjectId = $identityNamePrincipalId
   RoleDefinitionName = $imageRoleDefName

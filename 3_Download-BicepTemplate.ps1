@@ -22,13 +22,13 @@ else {
 
 
 # Update the parameter section of the AIB.bicep file under .\Template
+# (Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).id
 
 
 # Set variables if not already defined
 $imageResourceGroup = '<Image Resource Group>'
 $imageTemplateName = '<Image Template Name>'
 $deploymentName = '<Deployment Name>'
-
 
 # Install Bicep if not already available
 # follow one of the options in the link below to install Bicep
